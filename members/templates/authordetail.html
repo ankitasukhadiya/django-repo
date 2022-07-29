@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <body>
+            <form  method="POST" action="{% url 'members:authordetail' %}"> 
+                <table>
+                    <tr align="center">
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Phonenumber</th>
+                    </tr>
+                    {% for x in mymembers %}
+                    <tr align="center">
+                        <td>{{ x.id }}</td>
+                        <td>{{ x.User_name }}</td>
+                        <td>{{ x.User_mail }}</td>
+                        <td>{{ x.User_pwd }}</td>
+                        <td>{{ x.User_pno }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </form>
+        </body>
+    </head>
+</html>

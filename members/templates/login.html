@@ -1,0 +1,23 @@
+<!DOCTYPE html>    
+<html>    
+<head>          
+</head>    
+<body>    
+    <h2>Login Page</h2><br>  
+    <form  method="POST" action="{% url 'members:login' %}">    
+    {% csrf_token %}  
+        <label><b>User Name </b>
+        </label>    
+        <input type="text" name="User_name" id="User_name" placeholder="Username">    
+        <br><br>    
+        <label><b>Password </b>    
+        </label>    
+        <input type="Password" name="User_pwd" id="User_pwd" placeholder="Password">    
+        <br><br>    
+        <input type="submit" name="log" id="log" value="Log In Here">  
+        <p>{{message}}</p>    
+        <br><br>    
+    </form>       
+</body>    
+</html>            
+       

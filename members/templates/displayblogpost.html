@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<body>
+<h1>Successfully inserted</h1>
+<form>
+<table border="1" width="25%">
+    <tr>
+        <th>Author Name</th>
+        <th>Blogpost Name</th>
+        <th>Post Date</th>
+   
+    </tr>
+    {% for x in mymembers %}
+    <tr align="center">
+     
+        <td><a href="{% url 'members:authordetail' %}">{{ x.User }}</a></td>
+        <td>{{ x.Blogpost_name }}</td> 
+        <td>{{ x.Post_date }}</td>
+       
+    </tr>
+    {% endfor %}
+</table>
+<div class="pagination">
+    <span class="step-links">
+        {% if mymembers.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ mymembers.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ mymembers.number }} of {{ mymembers.paginator.num_pages }}.
+        </span>
+
+        {% if mymembers.has_next %}
+            <a href="?page={{ mymembers.next_page_number }}">next</a>
+            <a href="?page={{ mymembers.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+</form> 
+</body>
+</head>
+</html>    
